@@ -1,5 +1,5 @@
 {
-  "name": "pikaday",
+  "name": "pikaday-momentless",
   "version": "1.8.0",
   "description": "A refreshing JavaScript Datepicker — lightweight, no dependencies, modular CSS",
   "keywords": [
@@ -16,9 +16,10 @@
     "url": "https://github.com/Pikaday/Pikaday.git"
   },
   "devDependencies": {
-    "expect.js": "^0.3.1",
-    "jshint": "^2.9.6",
-    "mocha": "^5.2.0"
+    "expect.js": "0.3.1",
+    "jshint": "2.10.2",
+    "mocha": "6.2.0",
+    "testling": "1.7.1"
   },
   "testling": {
     "harness": "mocha",
