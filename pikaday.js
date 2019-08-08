@@ -210,6 +210,8 @@
         maxDate: null,
         // include only these dates
         includeDates: null,
+        // exclude these dates
+        excludeDates: null,
 
         // number of years either side, or array of upper/lower range
         yearRange: 10,
@@ -742,6 +744,9 @@
             if (opts.includeDates) {
                 this.setIncludeDates(opts.includeDates);
             }
+            if (opts.excludeDates) {
+                this.setExcludeDates(opts.excludeDates);
+            }
 
             if (isArray(opts.yearRange)) {
                 var fallback = new Date().getFullYear() - 10;
@@ -957,6 +962,11 @@
             this._o.includeDates = value;
         },
 
+        setExcludeDates: function(value)
+        {
+            this._o.excludeDates = value;
+        },
+
         /**
          * change the maxDate
          */
@@ -1147,6 +1157,7 @@
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
                                  (opts.includeDates && opts.includeDates.indexOf(day) < 0) ||
+                                 (opts.excludeDates && opts.excludeDates.indexOf(day) >= 0) ||
                                  (opts.disableWeekends && isWeekend(day)) ||
                                  (opts.disableDayFn && opts.disableDayFn(day));
 
