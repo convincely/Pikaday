@@ -208,6 +208,8 @@
         minDate: null,
         // the maximum/latest date that can be selected
         maxDate: null,
+        // include only these dates
+        includeDates: null,
 
         // number of years either side, or array of upper/lower range
         yearRange: 10,
@@ -737,6 +739,9 @@
             if (opts.maxDate) {
                 this.setMaxDate(opts.maxDate);
             }
+            if (opts.includeDates) {
+                this.setIncludeDates(opts.includeDates);
+            }
 
             if (isArray(opts.yearRange)) {
                 var fallback = new Date().getFullYear() - 10;
@@ -947,6 +952,11 @@
             this.draw();
         },
 
+        setIncludeDates: function(value)
+        {
+            this._o.includeDates = value;
+        },
+
         /**
          * change the maxDate
          */
@@ -1136,6 +1146,7 @@
                     isInRange = opts.startRange && opts.endRange && opts.startRange < day && day < opts.endRange,
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
+                                 (opts.includeDates && opts.includeDates.indexOf(day) < 0) ||
                                  (opts.disableWeekends && isWeekend(day)) ||
                                  (opts.disableDayFn && opts.disableDayFn(day));
 
