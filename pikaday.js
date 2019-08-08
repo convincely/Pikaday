@@ -1156,8 +1156,8 @@
                     isInRange = opts.startRange && opts.endRange && opts.startRange < day && day < opts.endRange,
                     isDisabled = (opts.minDate && day < opts.minDate) ||
                                  (opts.maxDate && day > opts.maxDate) ||
-                                 (opts.includeDates && opts.includeDates.indexOf(day) < 0) ||
-                                 (opts.excludeDates && opts.excludeDates.indexOf(day) >= 0) ||
+                                 (opts.includeDates && opts.includeDates.indexOf(dayNumber) < 0) ||
+                                 (opts.excludeDates && opts.excludeDates.indexOf(dayNumber) >= 0) ||
                                  (opts.disableWeekends && isWeekend(day)) ||
                                  (opts.disableDayFn && opts.disableDayFn(day));
 
