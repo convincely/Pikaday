@@ -4,11 +4,7 @@
  * Copyright © 2014 David Bushell | BSD & MIT license | https://github.com/Pikaday/Pikaday
  */
 
-(function (root, factory)
-{
-    'use strict';
-    module.exports = factory();
-}(this, function ()
+function factory()
 {
     'use strict';
 
@@ -1265,4 +1261,6 @@
     };
 
     return Pikaday;
-}));
+}
+
+export const Pikaday = factory();
