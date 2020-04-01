@@ -7,19 +7,7 @@
 (function (root, factory)
 {
     'use strict';
-
-    if (typeof exports === 'object') {
-        // CommonJS module
-        module.exports = factory();
-    } else if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(function ()
-        {
-            return factory();
-        });
-    } else {
-        root.Pikaday = factory();
-    }
+    module.exports = factory();
 }(this, function ()
 {
     'use strict';
